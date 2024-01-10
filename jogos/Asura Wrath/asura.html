@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asura Wrath</title>
+    <style>
+        body {
+            margin: 0;
+            background-image: url("https://wallpapercave.com/wp/wp4017505.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 120vh;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #107C10;
+            color: white;
+        }
+
+        nav img {
+            height: 50px;
+        }
+
+        ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+        }
+
+        li {
+            margin-right: 20px;
+            cursor: pointer;
+        }
+
+        .sidebar {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 300px;
+            background-color: #107C10;
+            color: white;
+            padding: 30px;
+            transition: right 0.3s;
+        }
+
+        .close-btn {
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <img src="/corrida-main/assets/Microsoft_XBOX-square-removebg-preview.png" alt="">
+    <ul>
+        <li onclick="openSidebar()">Características do jogo</li>
+        <li>Comprar</li>
+        <li>Menu inicial</li>
+    </ul>
+</nav>
+
+<div class="sidebar" id="sidebar">
+    <span class="close-btn" onclick="closeSidebar()">X</span>
+    <h2>Características do jogo</h2>
+    <h3>Asura Wrath</h3>
+    <p>Asura (アスラ, Asura ) é o protagonista principal e personagem titular do jogo de ação beat 'em up Asura's Wrath . Ele é um semideus e marido de Durga , pai de Mitra , e cunhado de Yasha . Sua afinidade com o Mantra é a Ira . Ele foi anteriormente um dos Oito Generais Guardiões e ex-Guardião Geral da Ira, que serviu ao Exército de Shinkoku Trastrium e ao Imperador para lutar contra o Gohma .</p>
+</div>
+
+<script>
+    function openSidebar() {
+        document.getElementById('sidebar').style.display = 'block';
+    }
+
+    function closeSidebar() {
+        document.getElementById('sidebar').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>

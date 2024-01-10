@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Injustice 2</title>
+    <style>
+        body {
+            margin: 0;
+            background-image: url("https://store-images.s-microsoft.com/image/apps.28171.14260105223678872.1152921504743219174.f8b2a6ac-1876-4365-8bc8-4762b8af348a?mode=scale&q=90&h=1080&w=1920&background=%23FFFFFF");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #107C10;
+            color: white;
+        }
+
+        nav img {
+            height: 50px;
+        }
+
+        ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+        }
+
+        li {
+            margin-right: 20px;
+            cursor: pointer;
+        }
+
+        .sidebar {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 300px;
+            background-color: #107C10;
+            color: white;
+            padding: 30px;
+            transition: right 0.3s;
+        }
+
+        .close-btn {
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <img src="/corrida-main/assets/Microsoft_XBOX-square-removebg-preview.png" alt="">
+    <ul>
+        <li onclick="openSidebar()">Características do jogo</li>
+        <li>Comprar</li>
+        <li>Menu inicial</li>
+    </ul>
+</nav>
+
+<div class="sidebar" id="sidebar">
+    <span class="close-btn" onclick="closeSidebar()">X</span>
+    <h2>Características do jogo</h2>
+    <h3>Injustice 2</h3>
+   <p> Injustice 2 é uma sequência direta de Injustice: Gods Among Us, sendo um jogo de ação intenso que traz diversos super-heróis em um impasse tenso. A história do universo Injustice possui histórias diferentes do universo atual da dc Comics, onde o Super-Man, angustiado por uma grande perda, passa a matar os vilões.</p>
+</div>
+
+<script>
+    function openSidebar() {
+        document.getElementById('sidebar').style.display = 'block';
+    }
+
+    function closeSidebar() {
+        document.getElementById('sidebar').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>

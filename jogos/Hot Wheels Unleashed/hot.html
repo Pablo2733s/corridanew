@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hot Wheels Unleashed</title>
+    <style>
+        body {
+            margin: 0;
+            background-image: url("https://images5.alphacoders.com/116/1161176.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #107C10;
+            color: white;
+        }
+
+        nav img {
+            height: 50px;
+        }
+
+        ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+        }
+
+        li {
+            margin-right: 20px;
+            cursor: pointer;
+        }
+
+        .sidebar {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 300px;
+            background-color: #107C10;
+            color: white;
+            padding: 30px;
+            transition: right 0.3s;
+        }
+
+        .close-btn {
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <img src="/corrida-main/assets/Microsoft_XBOX-square-removebg-preview.png" alt="">
+    <ul>
+        <li onclick="openSidebar()">Características do jogo</li>
+        <li>Comprar</li>
+        <li>Menu inicial</li>
+    </ul>
+</nav>
+
+<div class="sidebar" id="sidebar">
+    <span class="close-btn" onclick="closeSidebar()">X</span>
+    <h2>Características do jogo</h2>
+    <h3>Hot Wheels Unleashed</h3>
+   <p>Colete os melhores veículos do universo de Hot Wheels™, construa pistas espetaculares e participe de corridas de tirar o fôlego. Os veículos mais populares da Hot Wheels™ esperam por você. Prepare-se para fazê-los alcançar a velocidade máxima!</p>
+</div>
+
+<script>
+    function openSidebar() {
+        document.getElementById('sidebar').style.display = 'block';
+    }
+
+    function closeSidebar() {
+        document.getElementById('sidebar').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>

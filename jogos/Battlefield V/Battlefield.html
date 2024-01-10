@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battlefield V</title>
+    <style>
+        body {
+            margin: 0;
+            background-image: url("https://wallpapercave.com/wp/wp3811500.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 140vh;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #107C10;
+            color: white;
+        }
+
+        nav img {
+            height: 50px;
+        }
+
+        ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+        }
+
+        li {
+            margin-right: 20px;
+            cursor: pointer;
+        }
+
+        .sidebar {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 300px;
+            background-color: #107C10;
+            color: white;
+            padding: 30px;
+            transition: right 0.3s;
+        }
+
+        .close-btn {
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <img src="/corrida-main/assets/Microsoft_XBOX-square-removebg-preview.png" alt="">
+    <ul>
+        <li onclick="openSidebar()">Características do jogo</li>
+        <li>Comprar</li>
+        <li>Menu inicial</li>
+    </ul>
+</nav>
+
+<div class="sidebar" id="sidebar">
+    <span class="close-btn" onclick="closeSidebar()">X</span>
+    <h2>Características do jogo</h2>
+    <h3>Battlefield V</h3>
+   <p>Essa é a experiência definitiva de Battlefield V. Entre no maior conflito da humanidade com o arsenal completo de armas, veículos e dispositivos, além do melhor conteúdo de personalização dos Anos 1 e 2.</p>
+</div>
+
+<script>
+    function openSidebar() {
+        document.getElementById('sidebar').style.display = 'block';
+    }
+
+    function closeSidebar() {
+        document.getElementById('sidebar').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
