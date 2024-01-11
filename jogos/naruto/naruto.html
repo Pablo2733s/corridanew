@@ -66,19 +66,36 @@
     <img src="/corrida-main/assets/Microsoft_XBOX-square-removebg-preview.png" alt="">
     <ul>
         <li onclick="openSidebar()">Características do jogo</li>
-        <li>Comprar</li>
-        <li>Menu inicial</li>
+        <li onclick="confirmarCompra()">Comprar</li>
+        <a style="text-decoration: none; color: white;" href="/corrida-main/index.html"><li>Menu inicial</li></a>
     </ul>
 </nav>
 
 <div class="sidebar" id="sidebar">
     <span class="close-btn" onclick="closeSidebar()">X</span>
     <h2>Características do jogo</h2>
+    <h3>Naruto Shippūden: Ultimate Ninja Storm 4</h3>
     <p>Naruto Shippūden: Ultimate Ninja Storm 4 é o sexto e último jogo da série Ultimate Ninja Storm desenvolvido pela CyberConnect2 e publicado pela Namco Bandai Games para o PlayStation 4, Xbox One, e Steam. Ele foi lançado em fevereiro no dia 4 no Japão, 5 no Brasil e 9 na América do Norte.Naruto Shippūden: Ultimate Ninja Storm 4 é o sexto e último jogo da série Ultimate Ninja Storm desenvolvido pela CyberConnect2 e publicado pela Namco Bandai Games para o PlayStation 4, Xbox One, e Steam. Ele foi lançado em fevereiro no dia 4 no Japão, 5 no Brasil e 9 na América do Norte.</p>
+    <p>Valor do Jogo:</p>
+    <h4>R$ 400.00</h4>
     <!-- Adicione mais características conforme necessário -->
 </div>
 
 <script>
+    function confirmarCompra() {
+        var nomedoJogo = document.querySelector('h3').innerText;
+        var preco = document.querySelector('h4').innerText;
+        var confirmacao = window.confirm('Você tem certeza que deseja comprar ' + nomedoJogo + ' no valor de  ' + preco);
+        if (confirmacao) {
+            window.location.href = '/corrida-main/pagina-de-compra.html'
+        }
+        else {
+            alert('Compra Cancelada')
+        }
+    }
+
+
+
     function openSidebar() {
         document.getElementById('sidebar').style.display = 'block';
     }

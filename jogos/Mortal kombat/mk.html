@@ -66,8 +66,8 @@
     <img src="/corrida-main/assets/Microsoft_XBOX-square-removebg-preview.png" alt="">
     <ul>
         <li onclick="openSidebar()">Características do jogo</li>
-        <li>Comprar</li>
-        <li>Menu inicial</li>
+        <li onclick="confirmarCompra()">Comprar</li>
+        <a style="text-decoration: none; color: white;" href="/corrida-main/index.html"><li>Menu inicial</li></a>
     </ul>
 </nav>
 
@@ -77,10 +77,25 @@
     <h3>Mortal Kombat XL</h3>
     <p>Mortal Kombat XL é uma versão atualizada de Mortal Kombat X, foi lançada em 1 de março de 2016, para PlayStation 4 e Xbox One, incluindo todos os personagens de conteúdo para download dos dois Kombat Packs lançados, quase todos os trajes alternativos bônus disponíveis em tempo de lançamento, jogabilidade aprimorada e código de rede aprimorado.</p>
     <p>Esta edição também foi lançada para Microsoft Windows em 4 de outubro de 2016 e adicionada ao Xbox Game Pass em 7 de dezembro de 2018.</p>
+    <p>Valor do Jogo:</p>
+    <h4>R$ 180.00</h4>
     <!-- Adicione mais características conforme necessário -->
 </div>
 
 <script>
+
+function confirmarCompra() {
+    var nomedoJogo = document.querySelector('h3').innerText;
+    var preco = document.querySelector('h4').innerText;
+    var confirmacao = window.confirm('Você tem certeza que deseja comprar ' + nomedoJogo + ' no valor de  ' + preco);
+        if (confirmacao) {
+            window.location.href = '/corrida-main/pagina-de-compra.html'
+        }
+        else {
+            alert('Compra Cancelada')
+        }
+    }
+
     function openSidebar() {
         document.getElementById('sidebar').style.display = 'block';
     }
