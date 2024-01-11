@@ -76,14 +76,16 @@
     <h2>Características do jogo</h2>
     <h3>Battlefield 1 Revolution</h3>
     <p>Battlefield 1 Revolution dá vida a capítulos inéditos e intensos da Primeira Guerra Mundial através do já incluso Passe Premium do Battlefield 1 em uma experiência Battlefield sempre em expansão. Novos modos, mapas e conflitos que vão revolucionar o seu jogo.
-
+    <p>Valor do jogo:</p>
+    <h4>R$ 400</h4>
     </p> <p> Com o Battlefield 1 Revolution, você participa de batalhas épicas em um multiplayer por equipe da Primeira Guerra Mundial. Com papéis de combate únicos em terra, céu e mar, nenhuma batalha é igual à outra. Ou então, desbrave este mundo em guerra por meio das campanhas para um jogador das Histórias de Guerra.</p>
 </div>
 
 <script>
     function confirmarCompra() {
         var nomedoJogo = document.querySelector('h3').innerText;
-        var confirmacao = window.confirm('Você tem certeza que deseja comprar ' + nomedoJogo + '?');
+        var preco = document.querySelector('h4').innerText;
+        var confirmacao = window.confirm('Você tem certeza que deseja comprar ' + nomedoJogo + ' pelo valor de ' + preco + "?");
         if (confirmacao) {
             window.location.href = '/corrida-main/pagina-de-compra.html'
         }

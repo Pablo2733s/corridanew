@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mortal Kombat XL</title>
+    <title>GTA V</title>
     <style>
         body {
             margin: 0;
@@ -66,7 +66,7 @@
     <img src="/corrida-main/assets/Microsoft_XBOX-square-removebg-preview.png" alt="">
     <ul>
         <li onclick="openSidebar()">Características do jogo</li>
-        <li>Comprar</li>
+        <li onclick="confirmarCompra()">Comprar</li>
         <a style="text-decoration: none; color: white;" href="/corrida-main/index.html"><li>Menu inicial</li></a>
     </ul>
 </nav>
@@ -75,12 +75,26 @@
     <span class="close-btn" onclick="closeSidebar()">X</span>
     <h2>Características do jogo</h2>
     <h3>GTA V</h3>
-    <p>Mortal Kombat XL é uma versão atualizada de Mortal Kombat X, foi lançada em 1 de março de 2016, para PlayStation 4 e Xbox One, incluindo todos os personagens de conteúdo para download dos dois Kombat Packs lançados, quase todos os trajes alternativos bônus disponíveis em tempo de lançamento, jogabilidade aprimorada e código de rede aprimorado.</p>
-    <p>Esta edição também foi lançada para Microsoft Windows em 4 de outubro de 2016 e adicionada ao Xbox Game Pass em 7 de dezembro de 2018.</p>
+    <p>Grand Theft Auto V é um jogo eletrônico de ação-aventura desenvolvido pela Rockstar North e publicado pela Rockstar Games. É o sétimo título principal da série Grand Theft Auto e foi lançado originalmente em 17 de setembro de 2013 para PlayStation 3 e Xbox 360, com remasterizações lançadas em 2014 para PlayStation 4 e Xbox One, em 2015 para Microsoft Windows e em 2022 para PlayStation 5 e Xbox Series X/S. O jogo se passa no estado ficcional de San Andreas, com a história da campanha um jogador seguindo três criminosos e seus esforços para realizarem assaltos sob a pressão de uma agência governamental. O mundo aberto permite que os jogadores naveguem livremente pelas áreas rurais e urbanas de San Andreas.</p>
+    <p>Valor do jogo:</p>
+    <h4>R$ 300</h4>
     <!-- Adicione mais características conforme necessário -->
 </div>
 
 <script>
+    function confirmarCompra() {
+        var nomedoJogo = document.querySelector('h3').innerText;
+        var preco = document.querySelector('h4').innerText;
+        var confirmacao = window.confirm('Você tem certeza que deseja comprar ' + nomedoJogo + ' pelo valor de ' + preco + "?");
+        if (confirmacao) {
+            window.location.href = '/corrida-main/pagina-de-compra.html'
+        }
+        else {
+            alert('Compra Cancelada')
+        }
+    }
+
+
     function openSidebar() {
         document.getElementById('sidebar').style.display = 'block';
     }

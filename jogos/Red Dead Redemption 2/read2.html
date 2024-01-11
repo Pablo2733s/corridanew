@@ -66,7 +66,7 @@
     <img src="/corrida-main/assets/Microsoft_XBOX-square-removebg-preview.png" alt="">
     <ul>
         <li onclick="openSidebar()">Características do jogo</li>
-        <li>Comprar</li>
+        <li onclick="confirmarCompra()">Comprar</li>
         <a style="text-decoration: none; color: white;" href="/corrida-main/index.html"><li>Menu inicial</li></a>
     </ul>
 </nav>
@@ -74,10 +74,25 @@
 <div class="sidebar" id="sidebar">
     <span class="close-btn" onclick="closeSidebar()">X</span>
     <h2>Características do jogo</h2>
+    <h3 >Red Dead Redemption 2</h3>
    <p>Estados Unidos, 1899. O fim da era do velho oeste se aproxima, e os xerifes caçam as últimas gangues fora da lei. Quem não se rende ou sucumbe, acaba morto. Depois de tudo dar errado em um roubo na cidade de Blackwater, no faroeste, Arthur Morgan e a gangue Van der Linde são obrigados a fugir.</p>
+   <p>Valor do jogo:</p>
+   <h4>R$ 250</h4>
 </div>
 
 <script>
+    
+    function confirmarCompra() {
+        var nomedoJogo = document.querySelector('h3').innerText;
+        var preco = document.querySelector('h4').innerText;
+        var confirmacao = window.confirm('Você tem certeza que deseja comprar ' + nomedoJogo + ' pelo valor de ' + preco + "?");
+        if (confirmacao) {
+            window.location.href = '/corrida-main/pagina-de-compra.html'
+        }
+        else {
+            alert('Compra Cancelada')
+        }
+    }
     function openSidebar() {
         document.getElementById('sidebar').style.display = 'block';
     }

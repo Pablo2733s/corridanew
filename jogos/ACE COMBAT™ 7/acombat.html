@@ -66,7 +66,7 @@
     <img src="/corrida-main/assets/Microsoft_XBOX-square-removebg-preview.png" alt="">
     <ul>
         <li onclick="openSidebar()">Características do jogo</li>
-        <li>Comprar</li>
+        <li onclick="confirmarCompra()">Comprar</li>
         <a style="text-decoration: none; color: white;" href="/corrida-main/index.html"><li>Menu inicial</li></a>
     </ul>
 </nav>
@@ -76,9 +76,26 @@
     <h2>Características do jogo</h2>
     <h3>ACE COMBAT™ 7: SKIES UNKNOWN - TOP GUN: Maverick Ultimate...</h3>
    <p>Torne-se um ás da aviação e voe em céus realistas no maior simulador de voo e combate da série ACE COMBAT. Nada supera a sensação de cruzar os ares com 360 graus de liberdade, dependendo apenas dos seus instintos de voo para derrubar o inimigo e superar qualquer dificuldade.</p>
+   <p>Valor do jogo:</p>
+    <h4>R$ 295</h4>
+
+
+
 </div>
 
+
 <script>
+    function confirmarCompra() {
+        var nomedoJogo = document.querySelector('h3').innerText;
+        var preco = document.querySelector('h4').innerText;
+        var confirmacao = window.confirm('Você tem certeza que deseja comprar ' + nomedoJogo + ' pelo valor de ' + preco + "?");
+        if (confirmacao) {
+            window.location.href = '/corrida-main/pagina-de-compra.html'
+        }
+        else {
+            alert('Compra Cancelada')
+        }
+    }
     function openSidebar() {
         document.getElementById('sidebar').style.display = 'block';
     }

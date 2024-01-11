@@ -66,7 +66,7 @@
     <img src="/corrida-main/assets/Microsoft_XBOX-square-removebg-preview.png" alt="">
     <ul>
         <li onclick="openSidebar()">Características do jogo</li>
-        <li>Comprar</li>
+        <li onclick="confirmarCompra()">Comprar</li>
         <a style="text-decoration: none; color: white;" href="/corrida-main/index.html"><li>Menu inicial</li></a>
     </ul>
 </nav>
@@ -76,9 +76,23 @@
     <h2>Características do jogo</h2>
     <h3>The Crew</h3>
    <p>The Crew é um jogo MMO de corridas de ação que liga os jogadores online como nunca. The Crew lança-te a ti e aos teus amigos numa corrida alucinante através de mundo aberto, recreado à imagem dos Estados Unidos, ricamente detalhado e recheado de desafios intermináveis.</p>
+   <p>Valor do jogo:</p>
+    <h4>R$ 500</h4>
+
 </div>
 
 <script>
+    function confirmarCompra() {
+        var nomedoJogo = document.querySelector('h3').innerText;
+        var preco = document.querySelector('h4').innerText;
+        var confirmacao = window.confirm('Você tem certeza que deseja comprar ' + nomedoJogo + ' pelo valor de ' + preco + "?");
+        if (confirmacao) {
+            window.location.href = '/corrida-main/pagina-de-compra.html'
+        }
+        else {
+            alert('Compra Cancelada')
+        }
+    }
     function openSidebar() {
         document.getElementById('sidebar').style.display = 'block';
     }

@@ -75,13 +75,17 @@
     <span class="close-btn" onclick="closeSidebar()">X</span>
     <h2>Características do jogo</h2>
     <h3>Mortal Kombat 11</h3>
-    A experiência definitiva de Mortal Kombat 11! Assuma o controle dos protetores do Plano Terreno em 2 aclamadas Campanhas do Modo História, enquanto eles tentam impedir Kronika de voltar o tempo e reiniciar a história. Com os 37 lutadores do elenco, incluindo Rain, Mileena & Rambo
+   <p> A experiência definitiva de Mortal Kombat 11! Assuma o controle dos protetores do Plano Terreno em 2 aclamadas Campanhas do Modo História, enquanto eles tentam impedir Kronika de voltar o tempo e reiniciar a história. Com os 37 lutadores do elenco, incluindo Rain, Mileena & Rambo
+</p>
+<p>Valor do jogo:</p>
+<h4>R$ 250</h4>
 </div>
 
 <script>
     function confirmarCompra() {
         var nomedoJogo = document.querySelector('h3').innerText;
-        var confirmacao = window.confirm('Você tem certeza que deseja comprar ' + nomedoJogo + '?');
+        var preco = document.querySelector('h4').innerText;
+        var confirmacao = window.confirm('Você tem certeza que deseja comprar ' + nomedoJogo + ' pelo valor de ' + preco + '?');
         if (confirmacao) {
             window.location.href = '/corrida-main/pagina-de-compra.html'
         }

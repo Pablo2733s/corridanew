@@ -66,7 +66,7 @@
     <img src="/corrida-main/assets/Microsoft_XBOX-square-removebg-preview.png" alt="">
     <ul>
         <li onclick="openSidebar()">Características do jogo</li>
-        <li>Comprar</li>
+        <li onclick="confirmarCompra()">Comprar</li>
         <a style="text-decoration: none; color: white;" href="/corrida-main/index.html"><li>Menu inicial</li></a>
     </ul>
 </nav>
@@ -77,8 +77,21 @@
     <h3>Assassins'S Creed The Eizo Collection</h3>
   <p>ASSASSIN'S CREED® THE EZIO COLLECTION
     Aprenda o estilo dos Assassinos e busque vingança pela traição de sua família. Aventure-se pela Itália do Renascimento do século XV e se torne o líder mais lendário da Irmandade, depois encare uma última missão para descobrir a verdade sobre o Credo.</p>
+    <p>Valor do jogo:</p>
+    <h4>R$ 300</h4>
 
 <script>
+    function confirmarCompra() {
+        var nomedoJogo = document.querySelector('h3').innerText;
+        var preco = document.querySelector('h4').innerText;
+        var confirmacao = window.confirm('Você tem certeza que deseja comprar ' + nomedoJogo + ' pelo valor de ' + preco + "?");
+        if (confirmacao) {
+            window.location.href = '/corrida-main/pagina-de-compra.html'
+        }
+        else {
+            alert('Compra Cancelada')
+        }
+    }
     function openSidebar() {
         document.getElementById('sidebar').style.display = 'block';
     }

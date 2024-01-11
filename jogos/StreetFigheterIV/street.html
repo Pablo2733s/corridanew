@@ -76,12 +76,15 @@
     <h2>Características do jogo</h2>
     <h3>Street FigheterIV</h3>
     <p>Street Fighter IV é um jogo de luta desenvolvido pela Capcom e o quinto título da série Street Fighter. Foi lançado nos Arcades japoneses em julho de 2008 e as versões para PlayStation 3 e Xbox 360 saíram no fim do ano de 2008. Uma versão para PC saiu em julho de 2009. </p> <p> 27 de abril de 2010 foi lançada uma atualização com o nome de Super Street Fighter IV, onde foram adicionados mais 10 personagens jogáveis, novos cenários, novo balanceamento de personagens e novas modalidades de partidas online. Essa atualização foi seguida por Arcade Edition em 2010, 3D Edition em 2011 e finalmente Ultra Street Fighter IV em 2014. Todas as versões de Street Fighter IV venderam mais de 9 milhões de unidades em todas as plataformas.</p>
+    <p>Valor do jogo:</p>
+    <h4>R$ 280</h4>
 </div>
 
 <script>
     function confirmarCompra() {
         var nomedoJogo = document.querySelector('h3').innerText;
-        var confirmacao = window.confirm('Você tem certeza que deseja comprar ' + nomedoJogo + '?');
+        var preco = document.querySelector('h4').innerText;
+        var confirmacao = window.confirm('Você tem certeza que deseja comprar ' + nomedoJogo + ' pelo valor de ' + preco + "?");
         if (confirmacao) {
             window.location.href = '/corrida-main/pagina-de-compra.html'
         }

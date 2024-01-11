@@ -76,12 +76,15 @@
     <h2>Características do jogo</h2>
     <h3>Asura Wrath</h3>
     <p>Asura (アスラ, Asura ) é o protagonista principal e personagem titular do jogo de ação beat 'em up Asura's Wrath . Ele é um semideus e marido de Durga , pai de Mitra , e cunhado de Yasha . Sua afinidade com o Mantra é a Ira . Ele foi anteriormente um dos Oito Generais Guardiões e ex-Guardião Geral da Ira, que serviu ao Exército de Shinkoku Trastrium e ao Imperador para lutar contra o Gohma .</p>
+    <p>Valor do jogo:</p>
+    <h4>R$ 180</h4>
 </div>
 
 <script>
     function confirmarCompra() {
         var nomedoJogo = document.querySelector('h3').innerText;
-        var confirmacao = window.confirm('Você tem certeza que deseja comprar ' + nomedoJogo + '?');
+        var preco = document.querySelector('h4').innerText;
+        var confirmacao = window.confirm('Você tem certeza que deseja comprar ' + nomedoJogo + ' pelo valor de ' + preco + "?");
         if (confirmacao) {
             window.location.href = '/corrida-main/pagina-de-compra.html'
         }
