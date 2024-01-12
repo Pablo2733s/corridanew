@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogos</title>
+    <!-- Adicione os links para os estilos do Bootstrap e Bootstrap Icons -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.19.0/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #339194;
+        }
+
+        .game-container {
+            width: 250px;
+            height: 300px;
+            margin: 10px;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .game-container img {
+            width: 100%;
+            height: 50%;
+            object-fit: cover;
+        }
+
+        .game-details {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 50%;
+        }
+
+        h5 {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        p {
+            margin: 0;
+            text-align: center;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+<input style="padding: 20px; color: white; background-color: paleturquoise; border: #339194 2px solid;" type="text" id="searchInput" placeholder="Pesquisar por jogo">
+
+<a href="/jogos/naruto/naruto.html"><div class="game-container" data-game="Naruto Storm 4">
+    <img src="https://store-images.s-microsoft.com/image/apps.11388.64948385422045442.fc5518ac-d506-4b26-8e08-6bb267328027.5b2ce1b8-6011-4dbd-ae0f-6fbcf3af7875?q=90&w=270&h=405&mode=crop&format=jpg&background=%230078D7" alt="Naruto Storm 4">
+    <div class="game-details">
+        <h5 class="fw-bolder">Naruto Storm 4</h5>
+        <p>400.00</p>
+    </a></div>
+</div>
+
+<a href="/jogos/Mortal kombat/mk.html"><div class="game-container" data-game="Mortal Kombat XL">
+    <img src="https://store-images.s-microsoft.com/image/apps.43582.65690499810545026.aa1d3860-b757-4828-bb9e-87e0858403fe.6662f982-8e5b-4f1d-b400-61208379de70?q=90&w=270&h=405&mode=crop&format=jpg&background=%23FFFFFF" alt="Mortal Kombat XL">
+    <div class="game-details">
+        <h5 class="fw-bolder">Mortal Kombat XL</h5>
+        <p>180.00</p>
+    </div></a>
+</div>
+
+<a href="/jogos/batman/batman.html"><div class="game-container" data-game="Naruto Storm 4">
+    <img src="https://store-images.s-microsoft.com/image/apps.13992.66605680773719506.5b3e4fed-0747-483d-b407-2d6f4da8c3ba.571bc84d-2c3b-44ed-8f55-16e1c5d017f9?q=90&w=270&h=405&mode=crop&format=jpg&background=%23FFFFFF" alt="Naruto Storm 4">
+    <div class="game-details">
+        <h5 class="fw-bolder">Batman Arkhan Collection</h5>
+        <p>250.00</p></a>
+    </div>
+</div>
+
+<a href="/jogos/Battlefield 1 Revolution/battle.html"><div class="game-container">
+    <img src="https://store-images.s-microsoft.com/image/apps.10903.13990191027854846.0c760294-e5d0-447a-84a2-8b9c4c3cfe9b.3da9e2c5-0551-4f12-93b7-dc51d28812ec?q=90&w=270&h=405&mode=crop&format=jpg&background=%23FFFFFF">
+    <div class="game-details">
+        <h5 class="fw-bolder">Battlefield V
+        </h5>
+        <p>400</p></a>
+    </div>
+</div>
+
+<div class="game-container">
+    <img src="https://www.wog.ch/nas/cover_xl/x1/x1_mortalkombat11.jpg">
+    <div class="game-details">
+        <h5 class="fw-bolder">MK 11
+        </h5>
+        <p>250.00</p>
+    </div>
+</div>
+
+<div class="game-container">
+    <img src="https://store-images.s-microsoft.com/image/apps.36802.71686275590714237.efd0323d-ac00-4904-8061-9ab3d2bd8c68.587c752b-3e3f-4d08-a71b-06acecd79979?q=90&w=270&h=405&mode=crop&format=jpg&background=%230078D7">
+    <div class="game-details">
+        <h5 class="fw-bolder">Ultra SV
+        </h5>
+        <p>280.00</p>
+    </div>
+</div>
+
+<div class="game-container">
+    <img src="https://store-images.s-microsoft.com/image/apps.21699.68630626095504044.e284a3a0-d73a-4f14-be4f-1b52802240ab.f0b21847-96bc-4af1-b0fb-76ecc83ddd98?q=90&w=270&h=405&mode=crop&format=jpg&background=%230078D7">
+    <div class="game-details">
+        <h5 class="fw-bolder">Asura Wrath
+        </h5>
+        <p>180.00</p>
+    </div>
+</div>
+
+<div class="game-container">
+    <img src="https://store-images.s-microsoft.com/image/apps.55135.68596255437297164.99e6fb73-cd5e-440f-90c2-d8d2eb40a69d.b999154f-df74-4182-a63e-b2f13b9761db?q=90&w=270&h=405&mode=crop&format=jpg&background=%23FFFFFF">
+    <div class="game-details">
+        <h5 class="fw-bolder">Battlefield 1
+        </h5>
+        <p>400.00</p>
+    </div>
+</div>
+
+<div class="game-container">
+    <img src="https://store-images.s-microsoft.com/image/apps.23283.14086826113896348.0ac2ef86-2cca-45c3-9d11-1dc9ac71c024.54c1f17c-a245-453e-aaaf-f7603453b65a?q=90&w=270&h=405&mode=crop&format=jpg&background=%23FFFFFF">
+    <div class="game-details">
+        <h5 class="fw-bolder">GTA V
+        </h5>
+        <p>300.00</p>
+    </div>
+</div>
+
+<div class="game-container">
+    <img src="https://store-images.s-microsoft.com/image/apps.10032.71387273331786817.986fda8b-946c-4f68-8193-7600c9b3019f.c27be822-79e1-4352-824b-403fe0b2612c?q=90&w=270&h=405&mode=crop&format=jpg&background=%230078D7">
+    <div class="game-details">
+        <h5 class="fw-bolder">Red Dead
+        </h5>
+        <p>180.00</p>
+    </div>
+</div>
+
+<div class="game-container">
+    <img src="https://store-images.s-microsoft.com/image/apps.53664.14244061853036130.7c2802a8-1b30-475c-bf05-1f4138de9fd0.cb62b39f-2a00-466e-9b2f-58b8865ebd27?q=90&w=270&h=405&mode=crop&format=jpg&background=%23FFFFFF">
+    <div class="game-details">
+        <h5 class="fw-bolder">Read Dead 2
+        </h5>
+        <p>300.00</p>
+    </div>
+</div>
+
+<div class="game-container">
+    <img src="https://store-images.s-microsoft.com/image/apps.51396.69296710537599543.9e7afb5a-8195-4e25-bfc8-08e94d687949.fc8b8b4a-70e0-4d84-a5c8-a91fd9773feb?q=90&w=270&h=405&mode=crop&format=jpg&background=%230078D7">
+    <div class="game-details">
+        <h5 class="fw-bolder">Assassin's Creed Unity
+        </h5>
+        <p>400.00</p>
+    </div>
+</div>
+
+
+<div class="game-container">
+    <img src="https://store-images.s-microsoft.com/image/apps.38337.69011092827716296.e9190db7-6f4c-478c-8555-3edad4336a39.c312dbb9-bd59-403b-9161-3d058274b782?q=90&w=270&h=405&mode=crop&format=jpg&background=%230078D7">
+        <h5 class="fw-bolder">Assassin's Creed The Eizo
+        </h5>
+        <p>500.00</p>
+    </div>
+</div>
+
+<div class="game-container">
+    <img src="https://store-images.s-microsoft.com/image/apps.29520.63657969076271726.154f5a09-55ab-4b31-bc57-4e0335fab06a.98159a5f-99d5-4db9-89bc-4ae02f971596?q=90&w=270&h=405&mode=crop&format=jpg&background=%230078D7">
+        <h5 class="fw-bolder">Assassin'Creed Origin
+        </h5>
+        <p>500.00</p>
+    </div>
+</div>
+
+<div class="game-container">
+    <img src="https://store-images.s-microsoft.com/image/apps.64306.71295133238032534.1de820af-1d18-49b2-9916-0df00df0df84.32f1093c-5db6-401c-b9ac-d0ff6434abb2?q=90&w=270&h=405&mode=crop&format=jpg&background=%230078D7">
+        <h5 class="fw-bolder">Far Cy Primal
+        </h5>
+        <p>205.00</p>
+    </div>
+</div>
+
+<div class="game-container">
+    <img src="https://store-images.s-microsoft.com/image/apps.29081.68686812827552802.8be2e1b9-aae3-44fb-baa1-94ec02ae1ea8.36e033de-078a-428b-a9a5-b4a3ddeac042?q=90&w=270&h=405&mode=crop&format=jpg&background=%23FFFFFF">
+    <div class="game-details">
+        <h5 class="fw-bolder">Injustice 2
+        </h5>
+        <p>140.00</p>
+    </div>
+</div>
+
+<div class="game-container">
+     <img src="https://store-images.s-microsoft.com/image/apps.11916.68114426079950046.5627e398-8347-4a3b-964b-3259c8da68ea.74116150-3a0d-4a26-ba7c-f0b0280ae1a7?q=90&w=270&h=405&mode=crop&format=jpg&background=%23FFFFFF" alt="">
+    <div class="game-details">
+        <h5 class="fw-bolder">Assetto Corsa Ultimate Edition
+        </h5>
+        <p>180.00</p>
+    </div>
+</div>
+
+<div class="game-container">
+    <img src="https://store-images.s-microsoft.com/image/apps.35230.14019493132880077.fb8c1f0a-83be-4f1d-a619-2d330c2aed9d.7180c6d5-f148-4939-b5fe-4075246d3229?q=90&w=270&h=405&mode=crop&format=jpg&background=%230078D7">
+    <div class="game-details">
+        <h5 class="fw-bolder">CarX Drift Racing Online
+        </h5>
+        <p>180.00</p>
+    </div>
+</div>
+
+<div class="game-container">
+    <img src="https://store-images.s-microsoft.com/image/apps.26943.14052134826950780.2df88351-4933-4908-8674-0f9bbd5317ed.f353ed19-fe4d-4f07-b815-49de2ad6102a?q=90&w=270&h=405&mode=crop&format=jpg&background=%23FFFFFF">
+    <div class="game-details">
+        <h5 class="fw-bolder">ACE COMBAT™ 7: SKIES UNKNOWN - TOP GUN: Maverick Ultimate...
+        </h5>
+        <p>400.00</p>
+    </div>
+</div>
+
+<div class="game-container">
+    <img src="https://store-images.s-microsoft.com/image/apps.35840.13709580375743562.e6028929-8fc7-4c04-a580-6dbc5b7bd47d.725c8e26-53e7-4ef4-a11d-0f79f02c5565?q=90&w=270&h=405&mode=crop&format=jpg&background=%230078D7">
+    <div class="game-details">
+        <h5 class="fw-bolder">Hot Wheels Unleashed
+        </h5>
+        <p>380.00</p>
+    </div>
+</div>
+
+<div class="game-container">
+    <img src="https://store-images.s-microsoft.com/image/apps.32484.14084667986801832.e3339172-63e7-47fa-ba98-abfcabc7fe84.0ef42f5d-bd56-4634-acb4-85622020534d?q=90&w=270&h=405&mode=crop&format=jpg&background=%23FFFFFF">
+        <h5 class="fw-bolder">Ride 4
+        </h5>
+        <p>500.00 DLC</p>
+    </div>
+</div>
+
+<div class="game-container">
+    <img src="https://store-images.s-microsoft.com/image/apps.20396.13732783098848034.c01441ec-a169-44f9-85a8-8b8ad6ced9ac.3dac486d-e95f-4eee-b01a-c71ce4542879?q=90&w=270&h=405&mode=crop&format=jpg&background=%23FFFFFF" alt="">
+    <div class="game-details">
+        <h5 class="fw-bolder">The Crew
+        </h5>
+        <p>500.00</p>
+    </div>
+</div>
+
+<div class="game-container">
+    <img src="https://store-images.s-microsoft.com/image/apps.14012.13577083362163818.1f37febc-f04a-435c-b251-422bd39c8075.1b605f74-73c7-4d55-a6fd-2f308fa0f71e?q=90&w=270&h=405&mode=crop&format=jpg&background=%23FFFFFF">
+    <div class="game-details">
+        <h5 class="fw-bolder">Need For Speead
+        </h5>
+        <p>250.00</p>
+    </div>
+</div>
+
+<div class="game-container">
+    <img src="https://store-images.s-microsoft.com/image/apps.59559.14118446321195439.ccff36c1-ec13-486f-bb67-42465b639c39.5eb50985-47dd-43dd-8d9d-ed2f68d2f1e8?q=90&w=270&h=405&mode=crop&format=jpg&background=%230078D7">
+        <h5 class="fw-bolder">TT ISLE
+        </h5>
+        <p>440.00</p>
+    </div>
+</div>
+<!-- Adicione mais blocos para outros jogos conforme necessário -->
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    document.getElementById('searchInput').addEventListener('input', function () {
+        var searchTerm = this.value.toLowerCase();
+        var gameContainers = document.querySelectorAll('.game-container');
+
+        gameContainers.forEach(function (container) {
+            var gameName = container.querySelector('.fw-bolder').innerText.toLowerCase();
+            if (gameName.includes(searchTerm) || searchTerm === '') {
+                container.style.display = 'block';
+            } else {
+                container.style.display = 'none';
+            }
+        });
+    });
+</script>
+</body>
+</html>
