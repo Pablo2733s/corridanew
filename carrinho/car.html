@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras</title>
+    <!-- Adicione o link para a biblioteca Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url("background.jpg"); /* Substitua pelo caminho da sua imagem de fundo incrível */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Carrinho de Compras</h2>
+
+    <div>
+        <img src="/corrida-main/assets/Microsoft_XBOX-square-removebg-preview.png" alt="Imagem do jogo" id="imagemJogo">
+        <h3 id="nomeJogo">Naruto Shippūden: Ultimate Ninja Storm 4</h3>
+        <p>Valor do Jogo:</p>
+        <h4 id="precoJogo">R$ 400.00</h4>
+    </div>
+
+    <button class="btn btn-primary" onclick="voltarParaMenu()">Voltar para o Menu Inicial</button>
+</div>
+
+<!-- Adicione o link para a biblioteca do Bootstrap JavaScript e jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    // Função para voltar para o Menu Inicial
+    function voltarParaMenu() {
+        window.location.href = '/corrida-main/index.html';
+    }
+
+    // Preencher as informações do produto no carrinho
+    document.getElementById('imagemJogo').src = localStorage.getItem('imagemJogo');
+    document.getElementById('nomeJogo').innerText = localStorage.getItem('nomeJogo');
+    document.getElementById('precoJogo').innerText = localStorage.getItem('precoJogo');
+</script>
+
+</body>
+</html>
