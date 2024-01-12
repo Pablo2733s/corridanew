@@ -74,6 +74,10 @@
             text-decoration: none;
             color: black;
         }
+
+        #novo {
+            height: 200px;
+        }
     </style>
 </head>
 <body>
@@ -86,7 +90,7 @@
         <h5 class="fw-bolder">Naruto Storm 4</h5>
         <p>400.00</p>
         <a href="/jogos/naruto/naruto.html"><button style="margin: auto; display: block; color: white; background-color: teal; border-radius: 5px ; border: #ced4da 2px;">Information</button></a>
-        <button style="margin: auto; display: block; color: white; background-color: teal; border-radius: 5px ; border: #ced4da 2px; margin-top: 5px;">Comprar</button>
+        <button id="novo" onclick="carrinhoFunction()" style="margin: auto; display: block; color: white; background-color: teal; border-radius: 5px ; border: #ced4da 2px; margin-top: 5px;">Comprar</button>
     </a></div>
 </div>
 
@@ -296,6 +300,8 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.1/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
+
+
     document.getElementById('searchInput').addEventListener('input', function () {
         var searchTerm = this.value.toLowerCase();
         var gameContainers = document.querySelectorAll('.game-container');
