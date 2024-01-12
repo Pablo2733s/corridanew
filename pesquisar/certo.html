@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogos</title>
+    <!-- Adicione os links para os estilos do Bootstrap e Bootstrap Icons -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.19.0/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #339194;
+        }
+
+        .game-container {
+            width: 300px;
+            height: 300px;
+            margin: 10px;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .game-container img {
+            width: 100%;
+            height: 50%;
+            object-fit: cover;
+        }
+
+        .game-details {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 50%;
+        }
+
+        h5 {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        p {
+            margin: 0;
+            text-align: center;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        a {
+            color: black
+            
+        }
+        
+        a:hover {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+<input style="padding: 20px; color: black; background-color: paleturquoise; border: #339194 2px solid;" type="text" id="searchInput" placeholder="Pesquisar por jogo">
+
+<a href="/jogos/naruto/naruto.html"><div class="game-container" data-game="Naruto Storm 4">
+    <img src="https://tse1.mm.bing.net/th?id=OIP.wz5NCbFXn5wkHRu2xCG0EQHaEK&pid=Api&P=0&h=180" alt="Naruto Storm 4">
+    <div class="game-details">
+        <h5 class="fw-bolder">Naruto Storm 4</h5>
+        <p>400.00</p>
+        <a href="/jogos/naruto/naruto.html"><button style="margin: auto; display: block; color: white; background-color: teal; border-radius: 5px ; border: #ced4da 2px;">Information</button></a>
+        <button style="margin: auto; display: block; color: white; background-color: teal; border-radius: 5px ; border: #ced4da 2px; margin-top: 5px;">Comprar</button>
+    </a></div>
+</div>
+
+<a href="/jogos/Mortal kombat/mk.html"><div class="game-container" data-game="Mortal Kombat XL">
+    <img src="https://tse2.mm.bing.net/th?id=OIP.m3dWNYYSivS6NeuUEZ_gaQHaEK&pid=Api&P=0&h=180" alt="Mortal Kombat XL">
+    <div class="game-details">
+        <h5 class="fw-bolder">Mortal Kombat XL</h5>
+        <p>180.00</p>
+    </div></a>
+</div>
+
+<a href="/jogos/batman/batman.html"><div class="game-container" data-game="Naruto Storm 4">
+    <img src="https://images.alphacoders.com/110/1103343.jpg" alt="Naruto Storm 4">
+    <div class="game-details">
+        <h5 class="fw-bolder">Batman Arkhan Collection</h5>
+        <p>250.00</p></a>
+    </div>
+</div>
+
+<a href="/jogos/Battlefield 1 Revolution/battle.html"><div class="game-container">
+    <img src="https://tse3.mm.bing.net/th?id=OIP.7uIDdD5ONCM4nocBvlFrWgHaEK&pid=Api&P=0&h=180">
+    <div class="game-details">
+        <h5 class="fw-bolder">Battlefield V
+        </h5>
+        <p>400</p></a>
+    </div>
+</div>
+
+<a href="/jogos/mk11/mk11.html"><div class="game-container">
+    <img src="https://images.hdqwalls.com/download/2020-mortal-kombat-11-4k-ag-2560x1700.jpg">
+    <div class="game-details">
+        <h5 class="fw-bolder">MK 11
+        </h5>
+        <p>250.00</p></a>
+    </div>
+</div>
+
+<a href="/jogos/StreetFigheterIV/street.html"><div class="game-container">
+    <img src="https://tse2.mm.bing.net/th?id=OIP.Y14uozUHNazelWQ6vcPJCAHaEK&pid=Api&P=0&h=180">
+    <div class="game-details">
+        <h5 class="fw-bolder">Ultra SV
+        </h5>
+        <p>280.00</p></a>
+    </div>
+</div>
+
+<a href="/jogos/Asura Wrath/asura.html"><div class="game-container">
+    <img src="https://tse4.explicit.bing.net/th?id=OIP.UpzEm8-NJby_GZQrK-7JhQHaEK&pid=Api&P=0&h=180">
+    <div class="game-details">
+        <h5 class="fw-bolder">Asura Wrath
+        </h5>
+        <p>180.00</p></a>
+    </div>
+</div>
+
+<a href="/jogos/Battlefield 1 Revolution/battle.html"><div class="game-container">
+    <img src="https://tse3.mm.bing.net/th?id=OIP.lNMBZLfkFgzDgoY_TYTUOwHaEK&pid=Api&P=0&h=180">
+    <div class="game-details">
+        <h5 class="fw-bolder">Battlefield 1
+        </h5>
+        <p>400.00</p></a>
+    </div>
+</div>
+
+<a href="/jogos/Grand Theft Auto V/gta.html"><div class="game-container">
+    <img src="http://getwallpapers.com/wallpaper/full/c/e/3/439594.jpg">
+    <div class="game-details">
+        <h5 class="fw-bolder">GTA V
+        </h5>
+        <p>300.00</p></a>
+    </div>
+</div>
+
+<a href="/jogos/Red Dead Redemption/reddead.html"><div class="game-container">
+    <img src="https://images6.alphacoders.com/977/977450.jpg">
+    <div class="game-details">
+        <h5 class="fw-bolder">Red Dead
+        </h5>
+        <p>180.00</p></a>
+    </div>
+</div>
+
+<a href="/jogos/Red Dead Redemption 2/read2.html"><div class="game-container">
+    <img src="https://wallpapercave.com/wp/wp2205098.jpg">
+    <div class="game-details">
+        <h5 class="fw-bolder">Read Dead 2
+        </h5>
+        <p>300.00</p></a>
+    </div>
+</div>
+
+<a href="/jogos/Assassin's Creed Unity/as.html"><div class="game-container">
+    <img src="https://tse1.mm.bing.net/th?id=OIP.ssB9gnWoksj-IAgxNLIDQQHaEK&pid=Api&P=0&h=180">
+    <div class="game-details">
+        <h5 class="fw-bolder">Assassin's Creed Unity
+        </h5>
+        <p>400.00</p></a>
+    </div>
+</div>
+
+
+<a href="/jogos/Assassins'S Creed The Eizo Collection/screed.html"><div class="game-container">
+    <img src="https://images.hdqwalls.com/download/assassins-creed-game-4k-h8-3840x2400.jpg">
+        <h5 class="fw-bolder">Assassin's Creed The Eizo
+        </h5>
+        <p>500.00</p></a>
+    </div>
+</div>
+
+<a href="/jogos/origin/as.html"><div class="game-container">
+    <img src="https://hdqwalls.com/download/bayek-assassins-creed-origins-qw-2560x1440.jpg">
+        <h5 class="fw-bolder">Assassin'Creed Origin
+        </h5>
+        <p>500.00</p></a>
+    </div>
+</div>
+
+<a href="/jogos/farcryprimal/fy.html"><div class="game-container">
+    <img src="https://wallpapercave.com/wp/wp1896896.jpg">
+        <h5 class="fw-bolder">Far Cy Primal
+        </h5>
+        <p>205.00</p></a>
+    </div>
+</div>
+
+<a href="/jogos/Injustice 2/Injustice.html"><div class="game-container">
+    <img src="http://hdqwalls.com/wallpapers/injustice-2-fanart-poster-batman-vs-flash-4k-8a.jpg">
+    <div class="game-details">
+        <h5 class="fw-bolder">Injustice 2
+        </h5>
+        <p>140.00</p></a>
+    </div>
+</div>
+
+<a href="/jogos/Assetto Corsa/corsa.html"><div class="game-container">
+     <img src="https://tse4.mm.bing.net/th?id=OIP.0bvzB4PU_BxhhIqX6HMWKwHaEo&pid=Api&P=0&h=180" alt="">
+    <div class="game-details">
+        <h5 class="fw-bolder">Assetto Corsa Ultimate Edition
+        </h5>
+        <p>180.00</p></a>
+    </div>
+</div>
+
+<a href="/jogos/CarX Drift Racing Online/car.html"><div class="game-container">
+    <img src="https://wallpapercave.com/wp/wp8606870.jpg">
+    <div class="game-details">
+        <h5 class="fw-bolder">CarX Drift Racing Online
+        </h5>
+        <p>180.00</p></a>
+    </div>
+</div>
+
+<a href="/jogos/ACE COMBAT™ 7/acombat.html"><div class="game-container">
+    <img src="https://i.pinimg.com/originals/0d/af/13/0daf1386c7deae43dcb2c8a58341f10c.jpg">
+    <div class="game-details">
+        <h5 class="fw-bolder">ACE COMBAT™ 7: SKIES UNKNOWN - TOP GUN: Maverick Ultimate...
+        </h5>
+        <p>400.00</p></a>
+    </div>
+</div>
+
+<a href="/jogos/Hot Wheels Unleashed/hot.html"><div class="game-container">
+    <img src="http://traxion.gg/wp-content/uploads/2023/05/Hot-Wheels-Unleashed-2-Turbocharged-releases-October-with-motorcycles-and-a-story.jpg">
+    <div class="game-details">
+        <h5 class="fw-bolder">Hot Wheels Unleashed
+        </h5>
+        <p>380.00</p></a>
+    </div>
+</div>
+
+<a href="/jogos/Ride 4/ride.html"><div class="game-container">
+    <img src="https://images.hdqwalls.com/wallpapers/ride-4-uq.jpg">
+        <h5 class="fw-bolder">Ride 4
+        </h5>
+        <p>500.00 DLC</p></a>
+    </div>
+</div>
+
+<a href="/jogos/The Crew/crew.html"><div class="game-container">
+    <img src="https://wallpapercave.com/wp/wp1893559.jpg" alt="">
+    <div class="game-details">
+        <h5 class="fw-bolder">The Crew
+        </h5>
+        <p>500.00</p></a>
+    </div>
+</div>
+
+<a href="/jogos/need for speed/need.html"><div class="game-container">
+    <img src="https://wallpaperaccess.com/full/1253412.jpg">
+    <div class="game-details">
+        <h5 class="fw-bolder">Need For Speead
+        </h5>
+        <p>250.00</p></a>
+    </div>
+</div>
+
+<a href="/jogos/TT Isle/tt.html"><div class="game-container">
+    <img src="https://wallpapercave.com/wp/wp2089933.jpg">
+        <h5 class="fw-bolder">TT ISLE
+        </h5>
+        <p>440.00</p></a>
+    </div>
+</div>
+<!-- Adicione mais blocos para outros jogos conforme necessário -->
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    document.getElementById('searchInput').addEventListener('input', function () {
+        var searchTerm = this.value.toLowerCase();
+        var gameContainers = document.querySelectorAll('.game-container');
+
+        gameContainers.forEach(function (container) {
+            var gameName = container.querySelector('.fw-bolder').innerText.toLowerCase();
+            if (gameName.includes(searchTerm) || searchTerm === '') {
+                container.style.display = 'block';
+            } else {
+                container.style.display = 'none';
+            }
+        });
+    });
+</script>
+</body>
+</html>
