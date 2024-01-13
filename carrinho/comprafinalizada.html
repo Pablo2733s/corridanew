@@ -71,6 +71,38 @@
         .review-form button:hover {
             background-color: #1565c0;
         }
+
+        /* Adicionando estilo para o container de comentários */
+        .comentarios-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 300px;
+            background-color: #333;
+            color: #fff;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .comentarios-container div {
+            margin-bottom: 10px;
+        }
+
+        .ver-comentarios-btn {
+            background-color: #1e90ff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .ver-comentarios-btn:hover {
+            background-color: #1565c0;
+        }
     </style>
 </head>
 
@@ -97,6 +129,12 @@
                         <button type="button" class="btn btn-primary" onclick="setRating(5)">5</button>
                     </div>
                     <button class="btn btn-primary" onclick="submitReview()">Enviar Avaliação</button>
+
+                    <!-- Adicionando botão "Ver Comentários" e o container lateral -->
+                    <button class="ver-comentarios-btn" onclick="verComentarios()">Ver Comentários</button>
+                    <div id="comentariosContainer" class="comentarios-container">
+                        <!-- Os comentários serão exibidos aqui -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -132,6 +170,33 @@
             } else {
                 alert('Por favor, selecione uma avaliação antes de enviar.');
             }
+        }
+
+        function verComentarios() {
+            // Fazendo a solicitação GET usando Axios para buscar os últimos 3 comentários
+            axios.get('https://newnovo.onrender.com/buscarcoments', {
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                }
+            })
+            .then(response => {
+                // Exibindo os comentários no container lateral
+                const comentariosContainer = document.getElementById('comentariosContainer');
+                comentariosContainer.innerHTML = '';
+
+                response.data.comentarios.forEach(comentario => {
+                    const comentarioDiv = document.createElement('div');
+                    comentarioDiv.innerText = `Avaliação: ${comentario.avaliacao}, Comentário: ${comentario.comentario}`;
+                    comentariosContainer.appendChild(comentarioDiv);
+                });
+
+                // Abrindo o container lateral
+                comentariosContainer.style.display = 'block';
+            })
+            .catch(error => {
+                console.error('Erro ao buscar comentários:', error);
+                alert('Erro ao buscar comentários. Por favor, tente novamente.');
+            });
         }
     </script>
 </body>
