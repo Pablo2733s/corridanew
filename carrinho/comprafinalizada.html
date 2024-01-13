@@ -97,7 +97,9 @@
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
-            margin-top: 10px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
         }
 
         .fechar-comentarios-btn:hover {
@@ -160,6 +162,7 @@
     <script>
         let userRating;
         let userReview;
+        let comentariosAbertos = false;
 
         function setRating(rating) {
             userRating = rating;
@@ -189,36 +192,45 @@
         }
 
         function verComentarios() {
-            // Fazendo a solicitação GET usando Axios para buscar os últimos 3 comentários
-            axios.get('https://newnovo.onrender.com/buscarcoments', {
-                headers: {
-                    'Authorization': 'Bearer ' + localStorage.getItem('token')
-                }
-            })
-            .then(response => {
-                // Exibindo os comentários no container lateral
-                const comentariosContainer = document.getElementById('comentariosContainer');
-                comentariosContainer.innerHTML = '';
+            const comentariosContainer = document.getElementById('comentariosContainer');
+            
+            if (comentariosAbertos) {
+                // Se o container estiver aberto, fecha
+                comentariosContainer.style.display = 'none';
+                comentariosAbertos = false;
+            } else {
+                // Fazendo a solicitação GET usando Axios para buscar os últimos 3 comentários
+                axios.get('https://newnovo.onrender.com/buscarcoments', {
+                    headers: {
+                        'Authorization': 'Bearer ' + localStorage.getItem('token')
+                    }
+                })
+                .then(response => {
+                    // Exibindo os comentários no container lateral
+                    comentariosContainer.innerHTML = '';
 
-                response.data.comentarios.forEach(comentario => {
-                    const comentarioDiv = document.createElement('div');
-                    comentarioDiv.innerText = `Avaliação: ${comentario.avaliacao}, Comentário: ${comentario.comentario}`;
-                    comentariosContainer.appendChild(comentarioDiv);
+                    response.data.comentarios.forEach(comentario => {
+                        const comentarioDiv = document.createElement('div');
+                        comentarioDiv.innerText = `Avaliação: ${comentario.avaliacao}, Comentário: ${comentario.comentario}`;
+                        comentariosContainer.appendChild(comentarioDiv);
+                    });
+
+                    // Abrindo ou mantendo aberto o container lateral
+                    comentariosContainer.style.display = 'block';
+                    comentariosAbertos = true;
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar comentários:', error);
+                    alert('Erro ao buscar comentários. Por favor, tente novamente.');
                 });
-
-                // Abrindo o container lateral
-                comentariosContainer.style.display = 'block';
-            })
-            .catch(error => {
-                console.error('Erro ao buscar comentários:', error);
-                alert('Erro ao buscar comentários. Por favor, tente novamente.');
-            });
+            }
         }
 
         function fecharComentarios() {
             const comentariosContainer = document.getElementById('comentariosContainer');
             // Fechando o container lateral
             comentariosContainer.style.display = 'none';
+            comentariosAbertos = false;
         }
     </script>
 </body>
