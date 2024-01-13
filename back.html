@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login na Loja de Games</title>
+
     <style>
-        body {
+
+    body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #2c3e50;
             color: #ecf0f1;
@@ -18,12 +21,16 @@
             justify-content: center;
         }
 
-        .form-container {
-            background-color: #34495e;
+        /* Seu estilo existente */
+        .login-container {
+            background-color: #2c3e50;
+            color: #ecf0f1;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             width: 300px;
+            margin: 0 auto;
+            margin-top: 100px;
         }
 
         label {
@@ -55,19 +62,11 @@
         button:hover {
             background-color: #2980b9;
         }
-
-        a {
-            color: #3498db;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
     </style>
 </head>
+
 <body>
-    <div class="form-container">
+    <div class="login-container">
         <h2>Login na Loja de Games</h2>
         <form id="loginForm">
             <label for="identificador">E-mail ou Nome:</label>
@@ -76,33 +75,47 @@
             <label for="senha">Senha:</label>
             <input type="password" id="senha" name="senha" required>
 
-            <button type="button" onclick="realizarLogin()">Entrar</button>
-            <p>Não tem uma conta? <a href="/index.html">Cadastre-se</a></p>
+            <button type="button" onclick="realizarLogin()">Login</button>
+            <button type="button" onclick="returnToStore()">Voltar</button>
         </form>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
+        function returnToStore() {
+            window.location.href = "/index.html";
+        }
+
         function realizarLogin() {
             const identificador = document.getElementById('identificador').value;
             const senha = document.getElementById('senha').value;
 
             if (!identificador || !senha) {
-                alert('Informe o e-mail, nome ou senha para realizar o login.');
+                alert('Por favor, preencha todos os campos.');
                 return;
             }
 
             // Fazendo a solicitação POST usando Axios
             axios.post('https://novidadesnova.onrender.com/login', { identificador, senha })
                 .then(response => {
-                    alert('Login realizado com sucesso!');
-                    window.location.href = '/corrida-main/index.html'; // Redireciona para a tela jogos.html
+                    const token = response.data.token;
+
+                    if (token) {
+                        // Armazenar o token no Local Storage
+                        localStorage.setItem('token', token);
+
+                        alert('Login realizado com sucesso!');
+                        window.location.href = '/corrida-main/index.html'; // Redireciona para a página de compra finalizada
+                    } else {
+                        alert('Erro ao realizar login. Token não recebido.');
+                    }
                 })
                 .catch(error => {
                     console.error('Erro ao realizar login:', error);
-                    alert('Erro ao realizar login. Por favor, verifique suas credenciais.');
+                    alert('Erro ao realizar login. Por favor, tente novamente.');
                 });
         }
     </script>
 </body>
+
 </html>

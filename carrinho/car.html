@@ -503,13 +503,19 @@
 
         // Função para comprar todos os jogos no carrinho
         function buyAllGames() {
-            // Lógica para calcular e exibir o valor total da compra
-            var totalAmount = 0;
-            cartItems.forEach(function (item) {
-                totalAmount += item.price;
-            });
-            alert('Total da Compra: R$ ' + totalAmount.toFixed(2));
-        }
+        // Lógica para calcular e exibir o valor total da compra
+        var totalAmount = 0;
+        cartItems.forEach(function (item) {
+            totalAmount += item.price;
+        });
+        
+        // Exibe o alerta com o total da compra
+        alert('Compra realizada no valor de: R$ ' + totalAmount.toFixed(2));
+        
+        // Redireciona para a página de compra finalizada
+        window.location.href = "comprafinalizada.html";
+    }
+
     </script>
 </body>
 

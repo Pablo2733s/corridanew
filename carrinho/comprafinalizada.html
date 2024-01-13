@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend para Comentários</title>
+</head>
+
+<body>
+    <h2>Deixe seu Comentário</h2>
+
+    <form id="commentForm">
+        <label for="comment">Comentário:</label>
+        <textarea id="comment" name="comment" required></textarea>
+
+        <label for="rating">Avaliação:</label>
+        <select id="rating" name="rating" required>
+            <option value="1">1 estrela</option>
+            <option value="2">2 estrelas</option>
+            <option value="3">3 estrelas</option>
+            <option value="4">4 estrelas</option>
+            <option value="5">5 estrelas</option>
+        </select>
+
+        <button type="button" onclick="submitComment()">Enviar Comentário</button>
+    </form>
+
+    <script>
+        function submitComment() {
+            const comment = document.getElementById('comment').value;
+            const rating = document.getElementById('rating').value;
+
+            // Supondo que você tenha a URL do seu backend
+            const backendURL = 'https://novidadesnova.onrender.com/coments';
+
+            // Supondo que você tenha um token de autenticação (pode ser obtido após o login)
+            const authToken = 'seu-token-de-autenticacao';
+
+            // Montando os dados a serem enviados no corpo da solicitação
+            const data = {
+                comentario: comment,
+                avaliacao: rating
+            };
+
+            // Enviando a solicitação POST para o backend
+            fetch(backendURL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${authToken}` // Adicione o token de autenticação
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                console.log('Comentário adicionado com sucesso:', result);
+                // Você pode adicionar lógica adicional aqui, como mostrar uma mensagem de sucesso ao usuário
+            })
+            .catch(error => {
+                console.error('Erro ao adicionar comentário:', error);
+                // Lógica para lidar com erros, como mostrar uma mensagem de erro ao usuário
+            });
+        }
+    </script>
+</body>
+
+</html>
