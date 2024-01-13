@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    color: black;
+
+}
+
+.novos {
+    height: 50px;
+    border-radius: 5px;
+}
+
+
+.new {
+    height: 100%;
+}
+
+nav ul {
+    display: flex;
+    gap: 15px;
+    margin-left: 450px;
+    list-style: none;
+
+}
+
+nav li {
+    color: turquoise;
+}
+
+nav {
+    align-items: center;
+    padding: 35px;
+    background-color: black;
+    display: flex;
+}
+
+
+
+.novo img {
+    padding: 10px;
+    display: block;
+    margin: auto;
+
+}
+
+.novo {
+    padding: 200px;
+    background-color: rgb(122, 122, 243);
+    text-align: center;
+}
