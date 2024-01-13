@@ -58,6 +58,11 @@
             right: 20px;
             font-size: 20px;
         }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -66,8 +71,8 @@
     <img src="/corrida-main/assets/Microsoft_XBOX-square-removebg-preview.png" alt="">
     <ul>
         <li onclick="openSidebar()">Características do jogo</li>
-        <li onclick="confirmarCompra()">Comprar</li>
-        <a style="text-decoration: none; color: white;" href="/corrida-main/index.html"><li>Menu inicial</li></a>
+        <a href="/carrinho/car.html"><li onclick="confirmarCompra()">Comprar</li></a>
+        <a style="text-decoration: none; color: white;" href="/carrinho/car.html"><li>Menu inicial</li></a>
     </ul>
 </nav>
 
@@ -90,7 +95,7 @@
         var preco = document.querySelector('h4').innerText;
         var confirmacao = window.confirm('Você tem certeza que deseja comprar ' + nomedoJogo + ' pelo valor de ' + preco + "?");
         if (confirmacao) {
-            window.location.href = '/corrida-main/pagina-de-compra.html'
+            window.location.href = '/carrinho/car.html'
         }
         else {
             alert('Compra Cancelada')
