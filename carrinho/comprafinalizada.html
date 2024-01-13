@@ -16,7 +16,7 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 600px;
             margin: 50px auto;
         }
 
@@ -80,7 +80,7 @@
             right: 0;
             bottom: 0;
             width: 300px;
-            background-color: #333;
+            background-color: #3498db;
             color: #fff;
             overflow-y: auto;
             padding: 20px;
@@ -119,6 +119,21 @@
         .ver-comentarios-btn:hover {
             background-color: #1565c0;
         }
+
+        .sair-btn {
+            background-color: #d32f2f;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .sair-btn:hover {
+            background-color: #b71c1c;
+        }
     </style>
 </head>
 
@@ -152,6 +167,7 @@
                         <!-- Botão "Fechar" -->
                         <button class="fechar-comentarios-btn" onclick="fecharComentarios()">X</button>
                         <!-- Os comentários serão exibidos aqui -->
+                        <button class="sair-btn" onclick="sair()">Sair</button>
                     </div>
                 </div>
             </div>
@@ -215,6 +231,13 @@
                         comentariosContainer.appendChild(comentarioDiv);
                     });
 
+                    // Adicionando botão "Sair" dentro do container
+                    const sairBtn = document.createElement('button');
+                    sairBtn.className = 'sair-btn';
+                    sairBtn.innerText = 'Sair';
+                    sairBtn.onclick = sair;
+                    comentariosContainer.appendChild(sairBtn);
+
                     // Abrindo ou mantendo aberto o container lateral
                     comentariosContainer.style.display = 'block';
                     comentariosAbertos = true;
@@ -229,6 +252,13 @@
         function fecharComentarios() {
             const comentariosContainer = document.getElementById('comentariosContainer');
             // Fechando o container lateral
+            comentariosContainer.style.display = 'none';
+            comentariosAbertos = false;
+        }
+
+        function sair() {
+            const comentariosContainer = document.getElementById('comentariosContainer');
+            // Fechando o container lateral ao sair
             comentariosContainer.style.display = 'none';
             comentariosAbertos = false;
         }
