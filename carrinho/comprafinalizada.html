@@ -6,10 +6,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compra Finalizada</title>
 
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
     <style>
-        /* ... (seu estilo CSS permanece inalterado) ... */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #2b2b2b;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+        }
+
+        .header {
+            background-color: #1e90ff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            color: #fff;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        .review-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .review-form textarea {
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+        }
+
+        .review-form button {
+            background-color: #1e90ff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .review-form button:hover {
+            background-color: #1565c0;
+        }
     </style>
 </head>
 
@@ -41,6 +102,7 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
         let userRating;
         let userReview;
@@ -52,16 +114,20 @@
         function submitReview() {
             userReview = document.getElementById('userReview').value;
             if (userRating) {
-                // Envia os dados para a rota /coments usando Axios
-                axios.post('https://sua-api.com/coments', { rating: userRating, comment: userReview })
+                // Fazendo a solicitação POST usando Axios
+                axios.post('https://newnovo.onrender.com/coments', { comentario: userReview, avaliacao: userRating }, {
+                        headers: {
+                            'Authorization': 'Bearer ' + localStorage.getItem('token')
+                        }
+                    })
                     .then(response => {
-                        alert(`Obrigado pela sua avaliação de ${userRating} estrela(s)! Comentário: ${userReview || 'Nenhum comentário.'}`);
+                        alert('Comentário adicionado com sucesso!');
                         userRating = undefined;
                         userReview = undefined;
                     })
                     .catch(error => {
                         console.error('Erro ao adicionar comentário:', error);
-                        alert('Erro ao enviar comentário. Por favor, tente novamente.');
+                        alert('Erro ao adicionar comentário. Por favor, tente novamente.');
                     });
             } else {
                 alert('Por favor, selecione uma avaliação antes de enviar.');
