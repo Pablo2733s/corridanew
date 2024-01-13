@@ -71,7 +71,7 @@
             <input type="password" id="senha" name="senha" required>
 
             <button type="button" onclick="cadastrarUsuario()">Cadastrar</button>
-            <a href="/back.html"><button type="button" onclick="cadastrarUsuario()">Faça Login</button></a>
+            <button type="button" onclick="confirmLogin()">Faça Login</button>
         </form>
     </div>
 
@@ -97,6 +97,14 @@
                     console.error('Erro ao cadastrar:', error);
                     alert('Erro ao cadastrar. Por favor, tente novamente.');
                 });
+        }
+
+        function confirmLogin() {
+            const userConfirmedLogin = confirm('Você já tem uma conta?');
+
+            if (userConfirmedLogin) {
+                window.location.href = '/back.html'; // Redirect to the login page
+            }
         }
     </script>
 </body>
