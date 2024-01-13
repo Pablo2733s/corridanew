@@ -12,7 +12,71 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.19.0/font/bootstrap-icons.css" rel="stylesheet">
 
     <style>
-        /* ... (seu estilo existente) ... */
+        /* Seu estilo existente */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #2b2b2b;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+        }
+
+        .header {
+            background-color: #1e90ff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            color: #fff;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        .review-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .review-form textarea {
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+        }
+
+        .review-form button {
+            background-color: #1e90ff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .review-form button:hover {
+            background-color: #1565c0;
+        }
     </style>
 </head>
 
@@ -44,6 +108,7 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -59,34 +124,22 @@
         function submitReview() {
             userReview = document.getElementById('userReview').value;
             if (userRating) {
-                // Obtenha o token do localStorage
-                const token = localStorage.getItem('token');
-
-                // Verifique se o token está presente
-                if (!token) {
-                    alert('Você precisa estar logado para enviar uma avaliação.');
-                    return;
-                }
-
-                // Faça uma solicitação POST usando o token para autenticação
-                axios.post('https://novidadesnova.onrender.com/coments', {
-                    comentario: userReview,
-                    avaliacao: userRating
-                }, {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
+                // Realiza a requisição para a sua API
+                axios.post('https://sua-api.com/coments', {
+                    rating: userRating,
+                    review: userReview
                 })
                     .then(response => {
-                        alert('Avaliação enviada com sucesso!');
-                        // Faça qualquer redirecionamento ou ação necessária após o envio da avaliação
-                        userRating = undefined;
-                        userReview = undefined;
+                        alert('Comentário adicionado com sucesso!');
+                        // Redireciona ou faz outras ações necessárias após a conclusão da requisição
                     })
                     .catch(error => {
-                        console.error('Erro ao enviar avaliação:', error);
-                        alert('Erro ao enviar avaliação. Por favor, tente novamente.');
+                        console.error('Erro ao adicionar comentário:', error);
+                        alert('Erro ao adicionar comentário. Por favor, tente novamente.');
                     });
+
+                userRating = undefined;
+                userReview = undefined;
             } else {
                 alert('Por favor, selecione uma avaliação antes de enviar.');
             }
