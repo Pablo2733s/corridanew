@@ -421,7 +421,8 @@
     </div>
 
 
-    <div class="game-container" data-game="Naruto Storm 4">
+    
+    <div class="game-container" data-game="Naruto Storm 4"> 
         <img
             src="/corrida-main/assets/ttisle.webp"
             alt="Naruto Storm 4">
@@ -431,6 +432,17 @@
             <button class="buy-button">Comprar</button>
         </div>
     </div>
+
+    <div class="game-container" data-game="Hot Wheels Unleashed">
+        <img src="https://images3.alphacoders.com/113/1132802.jpg" alt="Hot Wheels Unleashed">
+        <div class="game-details">
+            <h5 class="fw-bolder">Hot Wheels Unleashed</h5>
+            <p>200.00</p>
+            <button class="buy-button">Comprar</button>
+        </div>
+    </div>
+
+    
 
     <!-- Adicione mais blocos para outros jogos conforme necessário -->
 
@@ -544,19 +556,27 @@
         }
 
         // Função para comprar todos os jogos no carrinho
-        function buyAllGames() {
-        // Lógica para calcular e exibir o valor total da compra
-        var totalAmount = 0;
-        cartItems.forEach(function (item) {
-            totalAmount += item.price;
-        });
-        
-        // Exibe o alerta com o total da compra
-        alert('Compra realizada no valor de: R$ ' + totalAmount.toFixed(2));
-        
-        // Redireciona para a página de compra finalizada
-        window.location.href = "/carrinho/comprafinalizada.html";
+     // Função para comprar todos os jogos no carrinho
+function buyAllGames() {
+    // Verifica se o carrinho está vazio
+    if (cartItems.length === 0) {
+        alert('Você não adicionou nada ao carrinho.');
+        return;
     }
+
+    // Lógica para calcular e exibir o valor total da compra
+    var totalAmount = 0;
+    cartItems.forEach(function (item) {
+        totalAmount += item.price;
+    });
+
+    // Exibe o alerta com o total da compra
+    alert('Compra realizada no valor de: R$ ' + totalAmount.toFixed(2));
+
+    // Redireciona para a página de compra finalizada
+    window.location.href = "/carrinho/comprafinalizada.html";
+}
+
 
     </script>
 </body>
