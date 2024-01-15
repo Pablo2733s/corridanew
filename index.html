@@ -74,8 +74,13 @@
 
     .form-container input {
         color: #f7f7f7;
-        background-color: 2c3e50
+        background-color: black;
     }
+
+    
+.form_container:hover {
+    background-color: black;
+}
 
     
 
@@ -120,10 +125,15 @@ button:active {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 101;
-    background-color: #fff;
+    background-color: black;
+    color: white;
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form_container:hover {
+    background-color: black;
 }
 
         label {
@@ -133,15 +143,15 @@ button:active {
         }
 
         input {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            box-sizing: border-box;
-            border: 1px solid #bdc3c7;
-            border-radius: 4px;
-            background-color: #ecf0f1;
-            color: black;
-        }
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    background-color: black;
+    color: white;
+}
 
        
     </style>
@@ -156,17 +166,19 @@ button:active {
         <form id="cadastroForm">
             <label for="nome">Nome:</label>
             <input type="text" id="nome" name="nome" required>
-
+    
             <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" required>
-
+            <input style="background-color: black;" type="email" id="email" name="email" required>
+    
             <label for="senha">Senha:</label>
-            <input type="password" id="senha" name="senha" required>
+            <input style="background-color: black;" type="password" id="senha" name="senha" required>
 
+    
             <button type="button" onclick="cadastrarUsuario()">Cadastrar</button>
             <button type="button" onclick="confirmLogin()">Faça Login</button>
         </form>
     </div>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
