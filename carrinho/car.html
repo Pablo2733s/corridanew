@@ -581,39 +581,48 @@
 
     // Envia uma solicitação ao servidor para adicionar o item ao carrinho
     function sendBuyRequest(name_jogo, preco) {
-        // Obtém o token do Local Storage (você deve implementar a lógica de autenticação)
-        var token = localStorage.getItem('token');
+    // Obtém o token do Local Storage (você deve implementar a lógica de autenticação)
+    var token = localStorage.getItem('token');
 
-        // Verifica se o usuário está autenticado
-        if (!token) {
-            alert('Você precisa estar autenticado para comprar jogos.');
-            return;
-        }
-
-        // Monta os dados a serem enviados ao servidor
-        var data = {
-            name_jogo: name_jogo,
-            preco: preco
-        };
-
-        // Faz a solicitação POST usando Axios (ou outra biblioteca de sua escolha)
-        axios.post('https://newnovo.onrender.com/comprar', data, {
-            headers: {
-                'Authorization': 'Bearer ' + token
-            }
-        })
-        .then(response => {
-            // Processa a resposta do servidor, se necessário
-            alert('Item adicionado ao carrinho com sucesso!');
-        })
-        .catch(error => {
-            // Trata erros na solicitação
-            console.error('Erro ao adicionar item ao carrinho:', error);
-            alert('Erro ao adicionar item ao carrinho. Por favor, tente novamente.');
-        });
+    // Verifica se o usuário está autenticado
+    if (!token) {
+        alert('Você precisa estar autenticado para comprar jogos.');
+        return;
     }
-    
-    function recuperarDesconto() {
+
+    // Obtém o desconto do Local Storage
+    var desconto = parseFloat(localStorage.getItem('desconto')) || 0;
+
+    // Calcula o preço com desconto
+    var precoComDesconto = preco - (preco * (desconto / 100));
+
+    // Arredonda o valor para duas casas decimais
+    precoComDesconto = Math.round(precoComDesconto * 100) / 100;
+
+    // Monta os dados a serem enviados ao servidor
+    var data = {
+        name_jogo: name_jogo,
+        preco: precoComDesconto // Use o preço com desconto
+    };
+
+    // Faz a solicitação POST usando Axios (ou outra biblioteca de sua escolha)
+    axios.post('https://newnovo.onrender.com/comprar', data, {
+        headers: {
+            'Authorization': 'Bearer ' + token
+        }
+    })
+    .then(response => {
+        // Processa a resposta do servidor, se necessário
+        alert('Item adicionado ao carrinho com sucesso!');
+    })
+    .catch(error => {
+        // Trata erros na solicitação
+        console.error('Erro ao adicionar item ao carrinho:', error);
+        alert('Erro ao adicionar item ao carrinho. Por favor, tente novamente.');
+    });
+}
+// Função para recuperar desconto
+function recuperarDesconto() {
     // Adapte esta URL conforme necessário
     axios.get('https://newnovo.onrender.com/badges', {
         headers: {
@@ -631,6 +640,9 @@
         alert('Erro ao recuperar desconto. Por favor, tente novamente.');
     });
 }
+
+// Recupera o desconto ao carregar a página
+recuperarDesconto();
 
 // Recupera o desconto ao carregar a página
 recuperarDesconto();
