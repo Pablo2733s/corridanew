@@ -139,6 +139,10 @@ body {
                 .then(response => {
                     const mensagem = response.data.mensagem;
                     const desconto = response.data.desconto;
+
+                    // Exibe o desconto no campo de desconto
+                    document.getElementById('desconto').value = desconto + '%';
+
                     alert(`${mensagem} Desconto: ${desconto}%`);
                     // Pode adicionar lógica adicional, se necessário
                 })
