@@ -143,6 +143,12 @@
         .comentarios-container {
             background-color: #032443;
         }
+
+        #historicoContainer {
+            background-color: #032443;
+            color: beige;
+        }
+        
     </style>
 </head>
 
@@ -172,6 +178,7 @@
 
                     <!-- Adicionando botão "Ver Comentários" e o container lateral -->
                     <button class="ver-comentarios-btn" onclick="verComentarios()">Ver Comentários</button>
+                    <div id="historicoContainer"></div>
                     <button class="btn btn-primary" onclick="buscarHistorico()">Histórico de Compras</button>
                     <a style="text-decoration: none; color: white;" href="/corrida-main/index.html"><button>Tela menu</button></a>
                     <div id="comentariosContainer" class="comentarios-container">
@@ -275,6 +282,12 @@
         }
 
         function buscarHistorico() {
+  // Seleciona o container onde os resultados serão exibidos
+  const historicoContainer = document.getElementById('historicoContainer');
+
+  // Limpa o conteúdo do container antes de preenchê-lo
+  historicoContainer.innerHTML = '';
+
   // Fazendo a solicitação GET usando Axios para buscar o histórico de compras
   axios.get('https://newnovo.onrender.com/historico', {
       headers: {
@@ -282,14 +295,29 @@
       }
   })
   .then(response => {
-      // Exibindo o histórico de compras em um alerta (você pode ajustar isso conforme necessário)
-      alert(JSON.stringify(response.data));
+      const historicoCompras = response.data.compras;
+
+      if (historicoCompras.length === 0) {
+        // Se não houver compras, exibe uma mensagem
+        historicoContainer.innerHTML = '<p>Nenhum histórico de compras encontrado.</p>';
+      } else {
+        // Se houver compras, cria elementos HTML para cada compra
+        historicoCompras.forEach(compra => {
+          const compraDiv = document.createElement('div');
+          compraDiv.innerHTML = `<p>ID: ${compra.id}, Jogo: ${compra.name_jogo}, Preço: ${compra.preco}</p>`;
+          historicoContainer.appendChild(compraDiv);
+        });
+      }
+
+      // Exibe o container de histórico de compras
+      historicoContainer.style.display = 'block';
   })
   .catch(error => {
       console.error('Erro ao buscar histórico de compras:', error);
       alert('Erro ao buscar histórico de compras. Por favor, tente novamente.');
   });
 }
+
 
     
     </script>
