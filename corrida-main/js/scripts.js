@@ -14,3 +14,8 @@ function showGameDetails() {
             alert("Game not found. Please enter a valid game ID.");
         }
     }
+    // Adiciona um ouvinte de evento ao botão com o ID "userButton"
+    document.getElementById('userButton').addEventListener('click', function() {
+        // Redireciona para a página /perfil.html
+        window.location.href = '/perfil.html';
+    });
