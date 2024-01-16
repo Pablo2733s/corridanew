@@ -132,6 +132,33 @@ body {
         function obterDescontoBadge() {
             // Faz a solicitação GET usando Axios
             axios.get('https://newnovo.onrender.com/badges', {
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                }
+            })
+            .then(response => {
+                const mensagem = response.data.mensagem;
+                const desconto = response.data.desconto;
+                
+                // Verifica se o elemento 'desconto' existe antes de definir o valor
+                var descontoElement = document.getElementById('desconto');
+                console.log('Elemento de desconto:', descontoElement);
+
+                if (descontoElement) {
+                    descontoElement.value = desconto + '%';
+                } else {
+                    console.error('Elemento de desconto não encontrado no HTML.');
+                }
+            })
+            .catch(error => {
+                console.error('Erro ao obter desconto do Badge:', error);
+                alert('Erro ao obter desconto do Badge. Por favor, tente novamente.');
+            });
+        }
+        
+        function obterDescontoBadge() {
+            // Faz a solicitação GET usando Axios
+            axios.get('https://newnovo.onrender.com/badges', {
                     headers: {
                         'Authorization': 'Bearer ' + localStorage.getItem('token')
                     }
@@ -139,10 +166,6 @@ body {
                 .then(response => {
                     const mensagem = response.data.mensagem;
                     const desconto = response.data.desconto;
-
-                    // Exibe o desconto no campo de desconto
-                    document.getElementById('desconto').value = desconto + '%';
-
                     alert(`${mensagem} Desconto: ${desconto}%`);
                     // Pode adicionar lógica adicional, se necessário
                 })
