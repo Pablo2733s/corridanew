@@ -622,15 +622,15 @@
 // Função para recuperar desconto
 function recuperarDesconto() {
     // Adapte esta URL conforme necessário
-    axios.get('https://newnovo.onrender.com/badges', {
+    axios.get('https://newnovo.onrender.com/recuperardesconto', {
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         }
     })
     .then(response => {
-        // Armazena o desconto no Local Storage
-        localStorage.setItem('desconto', response.data.desconto);
-        alert('Seu desconto de ' + response.data.desconto + '% foi recuperado com sucesso!');
+        // Processa a resposta do servidor
+        var desconto = response.data.desconto;
+        alert('Seu desconto de ' + desconto + '% foi recuperado com sucesso!');
     })
     .catch(error => {
         // Trata erros na solicitação
@@ -639,8 +639,6 @@ function recuperarDesconto() {
     });
 }
 
-// Recupera o desconto ao carregar a página
-recuperarDesconto();
     </script>
 </body>
 
