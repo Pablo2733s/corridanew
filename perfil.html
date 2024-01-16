@@ -5,25 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil do Usuário</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #032443;
+    background-image: url("https://i.pinimg.com/originals/0b/7b/17/0b7b17ffcc9ff327f4252606cd8cc945.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
 
         .container {
             max-width: 600px;
             margin: 50px auto;
-            background-color: #fff;
+            background-color: transparent;
+            color: black;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
+        .container input {
+            color: black;
+            border-radius: 8px;
+            height: 100%;
+            width: 100%;
+        }
+
+        .container label {
+            color: white;
+        }
+
         h2 {
             text-align: center;
-            color: #333;
+            color: white;
         }
 
         label {
@@ -40,30 +62,31 @@
         }
 
         button {
-            background-color: #007bff;
+            background-color: royalblue;
             color: #fff;
             padding: 10px 20px;
             border: none;
-            border-radius: 5px;
+            border-radius: 7px;
             cursor: pointer;
         }
 
         button:hover {
             background-color: #0056b3;
         }
+        
     </style>
 </head>
 <body>
     <div class="container">
         <h2>Editar Perfil</h2>
         <form id="editProfileForm">
-            <label for="nome">Nome:</label>
+            <label for="nome">Name:</label>
             <input type="text" id="nome" name="nome" required>
 
-            <label for="email">Email:</label>
+            <label for="email">E-mail:</label>
             <input type="email" id="email" name="email" required>
 
-            <label for="senha">Nova Senha:</label>
+            <label for="senha">New Password:</label>
             <input type="password" id="senha" name="senha">
 
             <button type="button" onclick="editarPerfil()">Salvar Alterações</button>
