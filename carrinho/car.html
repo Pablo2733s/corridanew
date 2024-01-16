@@ -619,26 +619,6 @@
     });
 }
 
-// Função para recuperar desconto
-function recuperarDesconto() {
-    // Adapte esta URL conforme necessário
-    axios.get('https://newnovo.onrender.com/badges', {
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        }
-    })
-    .then(response => {
-        // Processa a resposta do servidor
-        var desconto = response.data.desconto;
-        alert('Seu desconto de ' + desconto + '% foi recuperado com sucesso!');
-    })
-    .catch(error => {
-        // Trata erros na solicitação
-        console.error('Erro ao recuperar desconto:', error);
-        alert('Erro ao recuperar desconto. Por favor, tente novamente.');
-    });
-}
-
     </script>
 </body>
 
