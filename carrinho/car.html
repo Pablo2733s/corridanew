@@ -594,10 +594,7 @@
     var desconto = parseFloat(localStorage.getItem('desconto')) || 0;
 
     // Calcula o preço com desconto
-    var precoComDesconto = preco - (preco * (desconto / 100));
-
-    // Arredonda o valor para duas casas decimais
-    precoComDesconto = Math.round(precoComDesconto * 100) / 100;
+    var precoComDesconto = preco - (preco * desconto / 100);
 
     // Monta os dados a serem enviados ao servidor
     var data = {
@@ -621,6 +618,7 @@
         alert('Erro ao adicionar item ao carrinho. Por favor, tente novamente.');
     });
 }
+
 // Função para recuperar desconto
 function recuperarDesconto() {
     // Adapte esta URL conforme necessário
@@ -640,9 +638,6 @@ function recuperarDesconto() {
         alert('Erro ao recuperar desconto. Por favor, tente novamente.');
     });
 }
-
-// Recupera o desconto ao carregar a página
-recuperarDesconto();
 
 // Recupera o desconto ao carregar a página
 recuperarDesconto();
