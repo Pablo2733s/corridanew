@@ -475,109 +475,143 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 
     <script>
-        var cartItemCount = 0;
-        var cartItems = [];
+    var cartItemCount = 0;
+    var cartItems = [];
 
-        // Adiciona um evento de clique ao botão "Comprar" em cada bloco de jogo
-        var buyButtons = document.querySelectorAll('.buy-button');
-        buyButtons.forEach(function (button) {
-            button.addEventListener('click', function () {
-                // Obtem os dados do jogo
-                var gameName = this.closest('.game-container').querySelector('.fw-bolder').innerText;
+    // Adiciona um evento de clique ao botão "Comprar" em cada bloco de jogo
+    var buyButtons = document.querySelectorAll('.buy-button');
+    buyButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            // Obtem os dados do jogo
+            var gameName = this.closest('.game-container').querySelector('.fw-bolder').innerText;
+            var gamePrice = parseFloat(this.closest('.game-container').querySelector('p').innerText);
 
-                // Adiciona o item ao carrinho
-                var cartItem = {
-                    name: gameName,
-                    image: this.closest('.game-container').querySelector('img').src,
-                    price: parseFloat(this.closest('.game-container').querySelector('p').innerText) || 0
-                };
-                cartItems.push(cartItem);
+            // Adiciona o item ao carrinho
+            var cartItem = {
+                name: gameName,
+                image: this.closest('.game-container').querySelector('img').src,
+                price: gamePrice
+            };
+            cartItems.push(cartItem);
 
-                // Incrementa a contagem do carrinho
-                cartItemCount++;
-                updateCartCount();
+            // Incrementa a contagem do carrinho
+            cartItemCount++;
+            updateCartCount();
 
-                // Exibe a mensagem "Item adicionado ao carrinho"
-                alert('Item adicionado ao carrinho: ' + gameName);
-            });
+            // Envia a solicitação para comprar o jogo
+            sendBuyRequest(gameName, gamePrice);
         });
-
-        // Atualiza a contagem no ícone do carrinho
-        function updateCartCount() {
-            document.getElementById('cartCount').innerHTML = '<i class="fas fa-shopping-cart"></i>';
-        }
-
-        // Abre o modal do carrinho
-        function openCartModal() {
-            updateCartModal();
-            $('#cartModal').modal('show');
-        }
-
-        // Atualiza a exibição dos itens no modal do carrinho
-        function updateCartModal() {
-            var cartContainer = document.getElementById('cartContainer');
-            cartContainer.innerHTML = '';
-
-            cartItems.forEach(function (item, index) {
-                var cartItemContainer = document.createElement('div');
-                cartItemContainer.classList.add('cart-item');
-
-                var cartItemImage = document.createElement('img');
-                cartItemImage.src = item.image;
-                cartItemImage.alt = item.name;
-
-                var cartItemDetails = document.createElement('div');
-                cartItemDetails.classList.add('cart-item-details');
-
-                var cartItemName = document.createElement('h5');
-                cartItemName.classList.add('fw-bolder');
-                cartItemName.innerText = item.name;
-
-                var removeButton = document.createElement('button');
-                removeButton.classList.add('btn', 'btn-danger', 'mr-2');
-                removeButton.innerText = 'Remover';
-                removeButton.addEventListener('click', function () {
-                    // Remove o item do carrinho
-                    cartItems.splice(index, 1);
-                    // Atualiza a exibição do carrinho
-                    updateCartModal();
-                    // Atualiza a contagem do carrinho
-                    updateCartCount();
-                });
-
-                cartItemDetails.appendChild(cartItemName);
-                cartItemDetails.appendChild(removeButton);
-                cartItemContainer.appendChild(cartItemImage);
-                cartItemContainer.appendChild(cartItemDetails);
-                cartContainer.appendChild(cartItemContainer);
-            });
-        }
-
-        // Função para comprar todos os jogos no carrinho
-     // Função para comprar todos os jogos no carrinho
-function buyAllGames() {
-    // Verifica se o carrinho está vazio
-    if (cartItems.length === 0) {
-        alert('Você não adicionou nada ao carrinho.');
-        return;
-    }
-
-    // Lógica para calcular e exibir o valor total da compra
-    var totalAmount = 0;
-    cartItems.forEach(function (item) {
-        totalAmount += item.price;
     });
 
-    // Exibe o alerta com o total da compra
-    alert('Compra realizada no valor de: R$ ' + totalAmount.toFixed(2));
+    // Atualiza a contagem no ícone do carrinho
+    function updateCartCount() {
+        document.getElementById('cartCount').innerHTML = '<i class="fas fa-shopping-cart"></i>';
+    }
 
-    // Redireciona para a página de compra finalizada
-    window.location.href = "/carrinho/comprafinalizada.html";
-}
+    // Abre o modal do carrinho
+    function openCartModal() {
+        updateCartModal();
+        $('#cartModal').modal('show');
+    }
 
+    // Atualiza a exibição dos itens no modal do carrinho
+    function updateCartModal() {
+        var cartContainer = document.getElementById('cartContainer');
+        cartContainer.innerHTML = '';
 
+        cartItems.forEach(function (item, index) {
+            var cartItemContainer = document.createElement('div');
+            cartItemContainer.classList.add('cart-item');
+
+            var cartItemImage = document.createElement('img');
+            cartItemImage.src = item.image;
+            cartItemImage.alt = item.name;
+
+            var cartItemDetails = document.createElement('div');
+            cartItemDetails.classList.add('cart-item-details');
+
+            var cartItemName = document.createElement('h5');
+            cartItemName.classList.add('fw-bolder');
+            cartItemName.innerText = item.name;
+
+            var removeButton = document.createElement('button');
+            removeButton.classList.add('btn', 'btn-danger', 'mr-2');
+            removeButton.innerText = 'Remover';
+            removeButton.addEventListener('click', function () {
+                // Remove o item do carrinho
+                cartItems.splice(index, 1);
+                // Atualiza a exibição do carrinho
+                updateCartModal();
+                // Atualiza a contagem do carrinho
+                updateCartCount();
+            });
+
+            cartItemDetails.appendChild(cartItemName);
+            cartItemDetails.appendChild(removeButton);
+            cartItemContainer.appendChild(cartItemImage);
+            cartItemContainer.appendChild(cartItemDetails);
+            cartContainer.appendChild(cartItemContainer);
+        });
+    }
+
+    // Função para comprar todos os jogos no carrinho
+    function buyAllGames() {
+        // Verifica se o carrinho está vazio
+        if (cartItems.length === 0) {
+            alert('Você não adicionou nada ao carrinho.');
+            return;
+        }
+
+        // Lógica para calcular e exibir o valor total da compra
+        var totalAmount = 0;
+        cartItems.forEach(function (item) {
+            totalAmount += item.price;
+        });
+
+        // Exibe o alerta com o total da compra
+        alert('Compra realizada no valor de: R$ ' + totalAmount.toFixed(2));
+
+        // Redireciona para a página de compra finalizada
+        window.location.href = "/carrinho/comprafinalizada.html";
+    }
+
+    // Envia uma solicitação ao servidor para adicionar o item ao carrinho
+    function sendBuyRequest(name_jogo, preco) {
+        // Obtém o token do Local Storage (você deve implementar a lógica de autenticação)
+        var token = localStorage.getItem('token');
+
+        // Verifica se o usuário está autenticado
+        if (!token) {
+            alert('Você precisa estar autenticado para comprar jogos.');
+            return;
+        }
+
+        // Monta os dados a serem enviados ao servidor
+        var data = {
+            name_jogo: name_jogo,
+            preco: preco
+        };
+
+        // Faz a solicitação POST usando Axios (ou outra biblioteca de sua escolha)
+        axios.post('https://newnovo.onrender.com/comprar', data, {
+            headers: {
+                'Authorization': 'Bearer ' + token
+            }
+        })
+        .then(response => {
+            // Processa a resposta do servidor, se necessário
+            alert('Item adicionado ao carrinho com sucesso!');
+        })
+        .catch(error => {
+            // Trata erros na solicitação
+            console.error('Erro ao adicionar item ao carrinho:', error);
+            alert('Erro ao adicionar item ao carrinho. Por favor, tente novamente.');
+        });
+    }
     </script>
 </body>
 
