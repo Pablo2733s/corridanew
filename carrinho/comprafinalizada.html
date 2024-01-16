@@ -303,10 +303,11 @@
       } else {
         // Se houver compras, cria elementos HTML para cada compra
         historicoCompras.forEach(compra => {
-          const compraDiv = document.createElement('div');
-          compraDiv.innerHTML = `<p>ID: ${compra.id}, Jogo: ${compra.name_jogo}, Preço: ${compra.preco}</p>`;
-          historicoContainer.appendChild(compraDiv);
-        });
+  const compraDiv = document.createElement('div');
+  compraDiv.innerHTML = `<p>Jogo: ${compra.name_jogo}, Preço: ${compra.preco}</p>`;
+  historicoContainer.appendChild(compraDiv);
+});
+
       }
 
       // Exibe o container de histórico de compras
