@@ -87,6 +87,7 @@ body {
     </style>
 </head>
 <body>
+    <button style="float: right;" type="button" onclick="obterDescontoBadge()">Badge</button>
     <div class="container">
         <h2>Editar Perfil</h2>
         <form id="editProfileForm">
@@ -127,6 +128,26 @@ body {
                     alert('Erro ao editar informações da conta. Por favor, tente novamente.');
                 });
         }
+
+        function obterDescontoBadge() {
+            // Faz a solicitação GET usando Axios
+            axios.get('https://newnovo.onrender.com/badges', {
+                    headers: {
+                        'Authorization': 'Bearer ' + localStorage.getItem('token')
+                    }
+                })
+                .then(response => {
+                    const mensagem = response.data.mensagem;
+                    const desconto = response.data.desconto;
+                    alert(`${mensagem} Desconto: ${desconto}%`);
+                    // Pode adicionar lógica adicional, se necessário
+                })
+                .catch(error => {
+                    console.error('Erro ao obter desconto do Badge:', error);
+                    alert('Erro ao obter desconto do Badge. Por favor, tente novamente.');
+                });
+        }
+    </script>
     </script>
 </body>
 </html>
